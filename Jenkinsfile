@@ -52,6 +52,11 @@ node {
 			}else{
 			   rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:source:deploy -p force-app/main/default -u ${HUB_ORG} -c"
 			}
+		if (isUnix()) {
+				rms = sh returnStdout: true, script: "${toolbelt} force:auth:logout  -u ${HUB_ORG} -p"
+			}else{
+			   rms = bat returnStdout: true, script: "\"${toolbelt}\" force:auth:logout  -u ${HUB_ORG} -p"
+			}
 			  
             printf rmsg
             println('Hello from a Job DSL script!')

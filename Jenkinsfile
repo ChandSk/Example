@@ -19,6 +19,14 @@ node {
     def toolbelt = tool 'toolbelt'
     println 'toolbelt value'
     println toolbelt
+	stage('PreStep: Clean Workspace')
+	{
+	
+	 cleanWs()
+	 
+	 println 'WorkSpace Cleaned'
+	 
+	}
     stage('Checkout Branch') {
         // when running in multi-branch job, one must issue this command
         checkout scm

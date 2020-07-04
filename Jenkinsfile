@@ -25,12 +25,12 @@ node
                     echo "Client id ${cKey}"
 					echo "UserName is ${uName}"
 					echo "Instance Url is ${hName}"
-					rc = bat returnStatus: true, script: "\"${toolbelt}\" sfdx force:auth:jwt:grant --clientid ${cKey} --username ${uName} --jwtkeyfile \"${JWT_Secret_CRT}\" --instanceurl ${hName}"
+					rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${cKey} --username ${uName} --jwtkeyfile \"${JWT_Secret_CRT}\" --instanceurl ${hName}"
                          if (rc != 0) 
 						{ 
                           error 'org authorization failed' 
                         }
-				    rc = bat returnStdout: true, script: "\"${toolbelt}\" sfdx force:source:deploy -p force-app/main/default -u ${uName} -c"
+				    rc = bat returnStdout: true, script: "\"${toolbelt}\" force:source:deploy -p force-app/main/default -u ${uName} -c"
 			                  
 				}
     }

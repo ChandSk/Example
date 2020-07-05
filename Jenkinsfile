@@ -25,6 +25,7 @@ node
                     echo "Client id ${cKey}"
 					echo "UserName is ${uName}"
 					echo "Instance Url is ${hName}"
+			rc1 = bat returnStatus: true, script: "\"${toolbelt}\" sfdx force:auth:logout --targetusername ${uName} -p"
 					rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${cKey} --username ${uName} --jwtkeyfile \"${JWT_Secret_CRT}\" --instanceurl ${hName}"
                          if (rc != 0) 
 						{ 

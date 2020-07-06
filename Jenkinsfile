@@ -4,7 +4,7 @@ node
 {
     def toolbelt = tool 'sfdx_tool'
 	
-    stage('Clean Workspace')
+     stage('Clean Workspace')
 	{
 	
 	 cleanWs()
@@ -12,20 +12,21 @@ node
 	 println 'WorkSpace Cleaned'
 	 
 	}
-   stage('Selenium Test Scripts')
+	
+    stage('Checkout Branch') {
+        checkout scm
+        }
+	
+    stage('Selenium Test Scripts')
 	{
 	 
 	 println 'TO DO'
          println 'java -cp "/opt/testng-6.8.jar:bin" org.testng.TestNG testng.xml'		
 	 
 	}
-  
-  stage('Checkout Branch') {
-        checkout scm
-    }
 	
     stage('Authenticate CI and Validate')
-    {   
+         {   
 	
         withCredentials([file(credentialsId: 'SALESFORCE_PRIVATE_KEY', variable: 'JWT_Secret_CRT'), string(credentialsId: 'CONNECTED_APP_CONSUMER_KEY_DH', variable: 'cKey'), string(credentialsId: 'CI_USERNAME', variable: 'uName'),string(credentialsId: 'SFDC_HOST_DH_LOGIN', variable: 'hName')])
                 {

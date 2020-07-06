@@ -4,12 +4,19 @@ node
 {
     def toolbelt = tool 'sfdx_tool'
 	
-    stage('PreStep: Clean Workspace')
+    stage('Clean Workspace')
 	{
 	
 	 cleanWs()
 	 
 	 println 'WorkSpace Cleaned'
+	 
+	}
+   stage('Selenium Test Scripts')
+	{
+	 
+	 println 'TO DO'
+         println 'java -cp "/opt/testng-6.8.jar:bin" org.testng.TestNG testng.xml'		
 	 
 	}
   

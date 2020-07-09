@@ -4,16 +4,19 @@ node
 {
     def toolbelt = tool 'sfdx_tool'
 	
-     stage('Clean Workspace')
+    /* stage('Clean Workspace')
 	{
 	
 	 cleanWs()
 	 
 	 println 'WorkSpace Cleaned'
 	 
-	}
+	}*/
 	
     stage('Checkout Branch') {
+	 cleanWs()
+	 println 'WorkSpace Cleaned'
+	    
         checkout scm
         }
 	

@@ -25,6 +25,14 @@ node
 	 
 	}
 	
+    stage('Approval') {
+		input 'Do you approve deployment?'
+               /* script {
+                    def approvalNeeded = input id: 'Authenticate CI and Validate', message: 'Deploy to production?', submitter: 'chansk'
+                }*/
+           
+	}
+	
     stage('Authenticate CI and Validate')
          {   
 	
